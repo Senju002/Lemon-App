@@ -11,7 +11,7 @@ export default function LittleLemonFooter() {
     >
       <Text
         style={{
-          fontSize: 18,
+          fontSize: 12,
           color: "black",
           textAlign: "center",
         }}
