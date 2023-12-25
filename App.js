@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import LittleLemonHeader from "./components/LittleLemonHeader";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Hello Welcome</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, justifyContent: "flex-start", padding: 45 }}>
+      <LittleLemonHeader />
     </View>
   );
 }
