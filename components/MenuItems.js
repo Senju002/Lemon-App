@@ -32,6 +32,10 @@ const menuItemsToDisplay = [
   { name: "Panna Cotta", price: "$5.00", id: "21V" },
 ];
 
+const Seperator = () => <View style={menuStyles.separator} />;
+
+const Header = () => <Text style={menuStyles.headerText}>View Menu</Text>;
+
 const Item = ({ name, price }) => (
   <View style={menuStyles.innerContainer}>
     <Text style={menuStyles.itemText}>{name}</Text>
@@ -47,8 +51,14 @@ export default function MenuItems() {
         <Text style={menuStyles.headerText}>View Menu</Text>
         <Text style={menuStyles.itemText}>{MenuItemsToDisplay[0]}</Text>
       </ScrollView> */}
-      <Text style={menuStyles.headerText}>View Menu</Text>
-      <FlatList data={menuItemsToDisplay} renderItem={renderItem} />
+
+      <FlatList
+        data={menuItemsToDisplay}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        ItemSeparatorComponent={Seperator}
+        ListHeaderComponent={Header}
+      />
     </View>
   );
 }
@@ -60,7 +70,7 @@ const menuStyles = StyleSheet.create({
   innerContainer: {
     paddingHorizontal: 40,
     paddingVertical: 20,
-    backgroundColor: "blue",
+    backgroundColor: "white",
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -72,5 +82,9 @@ const menuStyles = StyleSheet.create({
   itemText: {
     color: "#F4CE14",
     fontSize: 26,
+  },
+  separator: {
+    borderBottomWidth: 1,
+    borderColorL: "#EDEFEE",
   },
 });
